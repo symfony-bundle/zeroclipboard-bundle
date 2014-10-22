@@ -1,0 +1,43 @@
+bundle:
+    title: ZeroClipboard Bundle for Symfony
+    description: >
+        This bundle adds the necessary scripts to work with this library in
+            Symfony projects.
+
+zerclipboard:
+    description: >
+        The <a href="http://zeroclipboard.org/" title="ZeroClipboard library"
+                 target="_new">ZeroClipboard library</a> provides an easy way to
+          copy text to the clipboard using an invisible Adobe Flash movie and a
+          JavaScript interface.
+
+docs:
+    installation:
+        title: Installation
+        systemRequirements:
+            title: System requirements
+            content1: No system requirements for this bundle
+            content2: Required packages will be installed automatically
+            content3: see Composer file for more details
+        composerRequirements:
+            title: Composer requirements
+            content: Add bundle to your composer.json file
+        enableAssetsInstaller:
+            title: Enable assets installer
+            content1: Add this line
+            content2: >
+                in post-install-cmd and post-update-cmd sections of your composer.json
+            content2: It will looks like
+        bundleActivation:
+            title: Bundle activation
+            content: Add bundle to your application kernel
+        projectUpdate:
+            title: Project update
+    usage:
+        title: Usage
+        twigAssets:
+            title: Twig templates
+        zeroClipboardDocs:
+            title: ZeroClipBoard Documentation
+    license:
+        title: License

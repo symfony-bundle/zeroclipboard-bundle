@@ -1,0 +1,65 @@
+# Generated public files
+/src/Anezi/Bundle/ZeroClipboardBundle/Resources/public
+
+# JQuery components folder (TODO)
+/components
+
+# Cache and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+
+# Parameters
+/app/config/parameters.yml
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/app/SymfonyRequirements.php
+/app/check.php
+/bin/*
+/vendor/
+/composer.lock
+
+# Assets
+/web/bundles/
+
+# Build data
+/build/
+
+# Composer PHAR
+/composer.phar
+
+# IDE files
+/.idea/
+
+# Eclipse files
+*.pydevproject
+.metadata
+.gradle
+/tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse

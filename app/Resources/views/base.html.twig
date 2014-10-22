@@ -1,0 +1,69 @@
+{% trans_default_domain "messages" %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ app.request.locale }}"
+      lang="{{ app.request.locale }}" dir="{% block direction %}ltr{% endblock direction %}">
+<head>
+    {% block head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="{{ _charset }}"/>
+        {% block stylesheets %}
+            {% stylesheets filter='cssrewrite'
+            'bundles/bootstrap/css/bootstrap.css'
+            'bundles/highlight-extra/css/native.css'
+            'css/docs.css' %}
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+        {% block javascripts %}
+            {% javascripts
+            'bundles/jquery-extra/jquery.js'
+            'bundles/bootstrap/js/bootstrap.js'
+            'bundles/zeroclipboard-assets/ZeroClipboard.js'
+            'js/application.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            <script>
+                var copy_to_clipboard = '{{ 'copy_to_clipboard'|trans }}';
+                var copied = '{{ 'copied'|trans }}';
+            </script>
+        {% endblock javascripts %}
+        {% stylesheets 'bundles/zeroclipboard-assets/ZeroClipboard.swf'
+        output='flash/ZeroClipboard.swf' %}
+        {% endstylesheets %}
+        {% stylesheets 'bundles/bootstrap/css/bootstrap.css.map'
+        output='css/bootstrap.css.map' %}
+        {% endstylesheets %}
+        <title>{% block pageTitle %}{% endblock pageTitle %} - Anezi.net</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+    {% endblock head %}
+</head>
+<body data-spy="scroll" data-target=".docs-sidebar" {% block body_attributes %}{% endblock body_attributes %}>
+{% block body %}
+    <div class="container">
+        <ul class="lang-menu">
+            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">Français</a></li>
+            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">English</a></li>
+        </ul>
+        {% block content %}
+            <div class="row">
+                <div class="col-sm-12">
+                    {% block main %}
+                        {% block mainContentOfPage %}{% endblock %}
+                    {% endblock main %}
+                </div>
+            </div>
+        {% endblock content %}
+    </div>
+{% endblock body %}
+{% block body_extra %}
+{% endblock body_extra %}
+<script>
+    window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+</script>
+</body>
+</html>

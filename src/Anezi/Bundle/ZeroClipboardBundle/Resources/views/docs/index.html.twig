@@ -1,0 +1,186 @@
+{% extends "::base.html.twig" %}
+{% trans_default_domain "messages" %}
+{% block mainContentOfPage %}
+<h1>{{ 'bundle.title'|trans }}</h1>
+
+<p>{{ 'zerclipboard.description'|trans|raw }}</p>
+
+<p>{{ 'bundle.description'|trans|raw }}</p>
+
+<div class="row">
+    <div class="col-md-9">
+        {% for number,header in headers %}
+            <h2 id="{{ header.id }}">
+                {{ number + 1 }}.
+                {{ ('docs.' ~ header.id ~ '.title')|trans }}
+            </h2>
+            {{ block(header.id) }}
+            {% if header.children is defined %}
+                {% for subnumber,subheader in header.children %}
+                    <h3 id="{{ subheader.id }}">
+                        {{ number + 1 }}.{{ subnumber + 1 }}
+                        {{ ('docs.' ~ header.id ~ '.' ~ subheader.id ~ '.title')|trans|raw }}
+                    </h3>
+                    {{ block(subheader.id) }}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3">
+        <div class="docs-sidebar hidden-print hidden-xs hidden-sm affix">
+            <ul class="nav">
+                {% for number,header in headers %}
+                    <li>
+                        <a href="#{{ header.id }}">
+                            {{ number + 1 }}.
+                            {{ ('docs.' ~ header.id ~ '.title')|trans }}
+                        </a>
+                        {% if header.children is defined %}
+                            <ul class="nav">
+                                {% for subnumber,subheader in header.children %}
+                                    <li>
+                                        <a href="#{{ subheader.id }}">
+                                            {{ number + 1 }}.{{ subnumber + 1 }}
+                                            {{ ('docs.' ~ header.id ~ '.' ~ subheader.id ~ '.title')|trans|raw }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+    <footer>
+        <div class="container">
+            <div>
+                <ul class="docs-social-buttons">
+                    <li>
+                        <iframe class="github-btn"
+                                src="https://mdo.github.io/github-buttons/github-btn.html?user=symfony-bundle&amp;repo=zeroclipboard-bundle&amp;type=watch&amp;count=true"
+                                width="100" height="20" title="Star on GitHub">
+                        </iframe>
+                    </li>
+                    <li>
+                        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=symfony-bundle&amp;repo=zeroclipboard-bundle&amp;type=fork&amp;count=true"
+                                width="100" height="20" title="Fork on GitHub"></iframe>
+                    </li>
+                    <li class="follow-btn">
+                        <a href="https://twitter.com/HassanAmouhzi"
+                           class="twitter-follow-button" data-link-color="#0069D6"
+                           data-show-count="true">Follow @HassanAmouhzi</a>
+                    </li>
+                    <li class="tweet-btn">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{app.request.uri}}" data-count="horizontal" data-via="HassanAmouhzi" data-related="HassanAmouhzi:Creator of Anezi.net">Tweet</a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                Documentation licensed under
+                <a href="http://creativecommons.org/licenses/by/3.0/">
+                    CC BY 3.0</a>.
+            </p>
+            <ul class="docs-footer-links muted">
+                <li>Currently v1.0.0</li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/symfony-bundle/zeroclipboard-bundle/issues">Issues</a></li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/symfony-bundle/zeroclipboard-bundle/releases">Releases</a></li>
+            </ul>
+        </div>
+    </footer>
+{% endblock mainContentOfPage %}
+
+{% block systemRequirements %}
+            <p>
+                {{ 'docs.installation.systemRequirements.content1'|trans }}.
+                {{ 'docs.installation.systemRequirements.content2'|trans }},
+                {{ 'docs.installation.systemRequirements.content3'|trans }}.
+            </p>
+{% endblock systemRequirements %}
+
+{% block composerRequirements %}
+<p>
+    {{ 'docs.installation.composerRequirements.content'|trans }}
+</p>
+
+{% highlight json %}
+{
+    "require": {
+        "symfony-bundle/zeroclipboard-bundle": "~1.0"
+    }
+}
+{% endhighlight %}
+{% endblock composerRequirements %}
+
+{% block enableAssetsInstaller %}
+<p>
+    {{ 'docs.installation.enableAssetsInstaller.content1'|trans }}
+    <code>Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler\\installAssets</code>
+    {{ 'docs.installation.enableAssetsInstaller.content2'|trans }}.
+    {{ 'docs.installation.enableAssetsInstaller.content3'|trans }}:
+</p>
+{% highlight json %}
+{
+    "scripts": {
+        "post-install-cmd": [
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets"
+        ]
+    }
+}
+{% endhighlight %}
+{% endblock enableAssetsInstaller %}
+
+{% block bundleActivation %}
+<p>
+    {{ 'docs.installation.bundleActivation.content'|trans|raw }}.
+</p>
+{% highlight php %}
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Anezi\Bundle\ZeroClipboardBundle\ZeroClipboardBundle(),
+        // ...
+    );
+}
+?>{% endhighlight %}
+{% endblock bundleActivation %}
+
+{% block projectUpdate %}
+{{ highlight('$ composer update', 'bash') }}
+{% endblock projectUpdate %}
+
+{% block twigAssets %}
+    {% highlight htmltwig %}{% verbatim %}
+<script type="text/javascript" src="{{ asset('bundles/zeroclipboard-assets/ZeroClipboard.js') }}">
+</script>
+{% endverbatim %}{% endhighlight %}
+{% endblock twigAssets %}
+
+{% block license %}
+    <p>
+        The ZeroClipboard library and this bundle are available under the MIT license.
+        <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/LICENSE"
+           target="_blank" title="ZeroClipboard library License">
+            See the ZeroClipboard License.
+        </a>
+    </p>
+{% endblock license %}
+
+{% block zeroClipboardDocs %}
+<p>
+    For ZeroClipboard documentation, please follow:
+    <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/README.md">
+        this link
+    </a>.
+</p>
+{% endblock zeroClipboardDocs %}

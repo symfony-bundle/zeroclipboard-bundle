@@ -1,0 +1,95 @@
+.docs-sidebar > ul {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.docs-sidebar > ul li {
+    border-top: 1px solid #ccc;
+}
+
+.docs-sidebar > ul > li {
+    border-left: 1px solid #ccc;
+}
+
+.docs-sidebar > ul > li.active > a {
+    background-color: #705090;
+    color: #fff;
+}
+
+.docs-sidebar > ul li li {
+    padding-left: 10px;
+}
+
+.docs-sidebar > ul li li.active, .docs-sidebar > ul li li:hover {
+    padding-left: 0;
+    border-left: 10px solid #ccc;
+}
+
+.docs-sidebar > ul li ul {
+}
+
+/*
+ * ZeroClipboard styles
+ */
+
+.zero-clipboard {
+    position: relative;
+    display: none;
+}
+.btn-clipboard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    padding: 5px 8px;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 0 4px 0 4px;
+}
+.btn-clipboard-hover {
+    color: #fff;
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
+
+@media (min-width: 768px) {
+    .zero-clipboard {
+        display: block;
+    }
+}
+
+.highlight pre {
+    background-color: #222;
+    border-color: #252525;
+    padding-right: 50px;
+    color: #fff;
+}
+
+footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 100px;
+    color: #777;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.docs-social-buttons li {
+    display: inline-block;
+    padding: 5px 0;
+    line-height: 1;
+}
+
+.github-btn {
+    overflow: hidden;
+    border: 0;
+}
+
+.docs-footer-links li {
+    display: inline;
+    padding: 0 2px;
+}

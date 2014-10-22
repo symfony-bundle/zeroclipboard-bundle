@@ -1,0 +1,77 @@
+{
+    "name": "symfony-bundle/zeroclipboard-bundle",
+    "type": "symfony-bundle",
+    "description": "ZeroClipboard Bundle for Symfony2",
+    "keywords": ["zeroclipboard", "clipboard"],
+    "homepage": "https://github.com/symfony-bundle/zeroclipboard-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan AMOUHZI",
+            "email": "hassan@amouhzi.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "zeroclipboard/zeroclipboard": "~2.1",
+        "version/version": "~2.0"
+    },
+    "require-dev": {
+        "symfony/symfony": "~2.5",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.5",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "composer/composer": "1.0.x-dev",
+        "phpunit/phpunit": "~4.3",
+        "symfony-bundle/bootstrap-bundle": "~3.2",
+        "symfony-bundle/highlight-bundle": "~1.0"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets",
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets",
+            "Anezi\\Bundle\\ZeroClipboardBundle\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "autoload": {
+        "psr-0": {
+            "Anezi\\Bundle\\ZeroClipboardBundle": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "jquery-version": "*",
+        "zeroclipboard-version": "~2.0"
+    }
+}

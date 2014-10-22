@@ -1,0 +1,45 @@
+bundle:
+    title: ZeroClipboard Bundle pour Symfony
+    description: >
+        Ce paquet ajoute les scripts nécessaires pour travailler avec cette
+            bibliothèque dans les projets Symfony.
+
+zerclipboard:
+    description: >
+        La bibliothèque
+            <a href="http://zeroclipboard.org/"
+               title="La bibliothèque ZeroClipboard" target="_new">ZeroClipboard</a>
+            fournit un moyen facile de copier du texte
+            dans le presse-papiers à l'aide d'un fichier <b>Adobe Flash</b> invisible et une
+            interface JavaScript.
+
+docs:
+    installation:
+        title: Installation
+        systemRequirements:
+            title: Configuration requise
+            content1: Aucune configuration requise pour ce bundle
+            content2: Les packages nécessaires seront automatiquement installés
+            content3: voir le fichier Composer pour plus de détails
+        composerRequirements:
+            title: Configuration de Composer
+            content: Ajouter ce paquet dans votre fichier composer.json
+        enableAssetsInstaller:
+            title: Activer l'installateur des <i>assets</i>
+            content1: Ajouter cette ligne
+            content2: >
+                dans les sections post-install-cmd and post-update-cmd de votre composer.json
+            content3: Comme ceci
+        bundleActivation:
+            title: Activation du <i>Bundle</i>
+            content: Ajouter ce <i>Bundle</i> dans le noyeau de votre application
+        projectUpdate:
+            title: Mettre à jour le projet
+    usage:
+        title: Usage
+        twigAssets:
+            title: Les templates <i>Twig</i>
+        zeroClipboardDocs:
+            title: Documentation de <i>ZeroClipBoard</i>
+    license:
+        title: License

@@ -1,0 +1,3 @@
+zeroclipboard_homepage:
+    path:     /
+    defaults: { _controller: ZeroClipboardBundle:Docs:index }
