@@ -41,5 +41,22 @@ docs:
             title: Les templates <i>Twig</i>
         zeroClipboardDocs:
             title: Documentation de <i>ZeroClipBoard</i>
+            content: >
+                Pour la documentation de ZeroClipboard, veuillez suivre
+                    <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/README.md">
+                        ce lien
+                    </a>.
     license:
-        title: License
+        title: Auteurs et license d'utilisation
+        content1: >
+            La librairie
+            <a href="https://github.com/zeroclipboard/zeroclipboard">
+            <b>ZeroClipboard</b></a> est écrite par <b>Jon Rohan</b>
+            et <b>James M. Greene</b> et distribué sous licence MIT.
+            <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/LICENSE"
+                       target="_blank" title="ZeroClipboard library License">
+                        Voir la license.
+                    </a>
+        content2: >
+            Ce bundle est aussi disponible sous license MIT, et son auteur est
+            <b>Hassan Amouhzi</a>

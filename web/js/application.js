@@ -1,4 +1,28 @@
 $(function () {
+
+    var sideBar = $('.docs-sidebar');
+
+    var calcTop = function() {
+        var offsetTop      = sideBar.offset().top;
+        var sideBarMargin  = parseInt(sideBar.children(0).css('margin-top'), 10);
+        var navOuterHeight = sideBar.height();
+
+        return offsetTop - navOuterHeight - sideBarMargin
+    };
+
+    var calcBottom = function () {
+        return $('footer').outerHeight(true)
+    };
+
+    sideBar.affix({
+        offset: {
+            top: calcTop(),
+            bottom: calcBottom()
+        }
+    });
+
+    $('body').scrollspy({ target: '.nav-index' });
+
     // Config ZeroClipboard
     ZeroClipboard.config({
         swfPath: '/flash/ZeroClipboard.swf',
@@ -7,12 +31,11 @@ $(function () {
 
     // Insert copy to clipboard button before .highlight or .bs-example
     $('.highlight').each(function () {
-        var highlight = $(this);
         var btnHtml = '<div class="zero-clipboard">' +
             '<span class="btn-clipboard">' +
             'Copy</span></div>';
 
-        highlight.before(btnHtml)
+        $(this).before(btnHtml)
     });
 
     var zeroClipboard = new ZeroClipboard($('.btn-clipboard'));

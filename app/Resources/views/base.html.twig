@@ -37,7 +37,7 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
     {% endblock head %}
 </head>
-<body data-spy="scroll" data-target=".docs-sidebar" {% block body_attributes %}{% endblock body_attributes %}>
+<body {% block body_attributes %}{% endblock body_attributes %}>
 {% block body %}
     <div class="container">
         <ul class="lang-menu">

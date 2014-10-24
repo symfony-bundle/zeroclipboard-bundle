@@ -8,7 +8,7 @@
 <p>{{ 'bundle.description'|trans|raw }}</p>
 
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         {% for number,header in headers %}
             <h2 id="{{ header.id }}">
                 {{ number + 1 }}.
@@ -26,9 +26,9 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div class="col-md-3">
-        <div class="docs-sidebar hidden-print hidden-xs hidden-sm affix">
-            <ul class="nav">
+    <div class="col-md-4">
+        <div class="docs-sidebar hidden-print hidden-xs hidden-sm">
+            <ul class="nav nav-index">
                 {% for number,header in headers %}
                     <li>
                         <a href="#{{ header.id }}">
@@ -167,20 +167,10 @@ public function registerBundles()
 {% endblock twigAssets %}
 
 {% block license %}
-    <p>
-        The ZeroClipboard library and this bundle are available under the MIT license.
-        <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/LICENSE"
-           target="_blank" title="ZeroClipboard library License">
-            See the ZeroClipboard License.
-        </a>
-    </p>
+    <p>{{ 'docs.license.content1'|trans|raw }}</p>
+    <p>{{ 'docs.license.content2'|trans|raw }}</p>
 {% endblock license %}
 
 {% block zeroClipboardDocs %}
-<p>
-    For ZeroClipboard documentation, please follow:
-    <a href="https://github.com/zeroclipboard/zeroclipboard/blob/master/README.md">
-        this link
-    </a>.
-</p>
+    <p>{{ 'docs.usage.zeroClipboardDocs.content'|trans|raw }}</p>
 {% endblock zeroClipboardDocs %}
