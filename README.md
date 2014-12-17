@@ -6,4 +6,4 @@ The [ZeroClipboard library](http://zeroclipboard.org/ "ZeroClipboard library") p
 This bundle adds the necessary scripts to work with this library in Symfony projects.
 
 For installation and usage, please refer to
-[anezi.net/en/docs/zeroclipboard-bundle](https://anezi.net/en/docs/zeroclipboard-bundle "Anezi documentations").
+[anezi.net/en/docs/zeroclipboard-bundle](http://symfony.anezi.net/zeroclipboard-bundle "Anezi documentations").
